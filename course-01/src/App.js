@@ -26,8 +26,8 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      {expenses.map((expense) => (
-        <ExpenseItem expense={expense} />
+      {expenses.map((item) => (
+        <ExpenseItem props={item} />
       ))}
     </div>
   );
