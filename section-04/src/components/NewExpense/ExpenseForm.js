@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-  const [expense, setExpense] = useState({ title: '', amount: '', date: '' });
+  const [input, setInput] = useState({ title: '', amount: '', date: '' });
 
   const changeHandler = (e) => {
     const type = e.target.type;
 
-    if (type === 'text') setExpense({ ...expense, title: e.target.value });
-    else if (type === 'number') setExpense({ ...expense, amount: e.target.value });
-    else if (type === 'date') setExpense({ ...expense, date: e.target.value });
+    if (type === 'text') setInput({ ...input, title: e.target.value });
+    else if (type === 'number') setInput({ ...input, amount: e.target.value });
+    else if (type === 'date') setInput({ ...input, date: e.target.value });
   };
 
   return (
