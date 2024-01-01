@@ -42,8 +42,20 @@ const ExpenseForm = () => {
     }
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const expenseDate = {
+      title,
+      amount,
+      date: new Date(date),
+    };
+
+    console.log(expenseDate);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
