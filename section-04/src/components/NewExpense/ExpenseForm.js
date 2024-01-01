@@ -8,9 +8,18 @@ const ExpenseForm = () => {
   const changeHandler = (e) => {
     const type = e.target.type;
 
-    if (type === 'text') setInput({ ...input, title: e.target.value });
-    else if (type === 'number') setInput({ ...input, amount: e.target.value });
-    else if (type === 'date') setInput({ ...input, date: e.target.value });
+    if (type === 'text')
+      setInput((prev) => {
+        return { ...prev, title: e.target.value };
+      });
+    else if (type === 'number')
+      setInput((prev) => {
+        return { ...prev, amount: e.target.value };
+      });
+    else if (type === 'date')
+      setInput((prev) => {
+        return { ...prev, date: e.target.value };
+      });
   };
 
   return (
