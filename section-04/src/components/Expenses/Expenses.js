@@ -21,14 +21,18 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filterYear;
   });
 
+  let expenseContent = <p>No Expenses found</p>;
+
+  if (filteredExpenses.length > 0) {
+    expenseContent = filteredExpenses.map((item) => <ExpenseItem key={item.id} props={item} />);
+  }
+
   return (
     <>
       <Card className='expenses'>
         <ExpenseFilter onChangeOption={optionChangeHandler} selectedYear={filterYear} />
         <p>Data for years {filterInfoText} is hidden.</p>
-        {filteredExpenses.map((item) => (
-          <ExpenseItem key={item.id} props={item} />
-        ))}
+        {expenseContent}
       </Card>
     </>
   );
