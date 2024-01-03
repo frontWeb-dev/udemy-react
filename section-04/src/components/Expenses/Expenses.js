@@ -23,7 +23,7 @@ const Expenses = (props) => {
         <ExpenseFilter onChangeOption={optionChangeHandler} selectedYear={filterYear} />
         <p>Data for years {filterInfoText} is hidden.</p>
         {props.items.map((item) => (
-          <ExpenseItem props={item} />
+          <ExpenseItem key={item.id} props={item} />
         ))}
       </Card>
     </>
