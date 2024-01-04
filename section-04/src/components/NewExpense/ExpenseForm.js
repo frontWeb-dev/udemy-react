@@ -8,30 +8,6 @@ const ExpenseForm = (props) => {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
 
-  const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
-    // setInput({...input, title: e.target.value})
-    // setInput((prev) => {
-    //   return { ...prev, title: e.target.value };
-    // });
-  };
-
-  const amountChangeHandler = (e) => {
-    setAmount(e.target.value);
-    // setInput({...input, amount: e.target.value})
-    // setInput((prev) => {
-    //   return { ...prev, amount: e.target.value };
-    // });
-  };
-
-  const dateChangeHandler = (e) => {
-    setDate(e.target.value);
-    // setInput({...input, date: e.target.value})
-    // setInput((prev) => {
-    //   return { ...prev, date: e.target.value };
-    // });
-  };
-
   const inputChangeHandler = (identifier, value) => {
     if (identifier === 'title') {
       setTitle(value);
@@ -59,13 +35,13 @@ const ExpenseForm = (props) => {
   };
 
   const clickHandler = () => {
-    props.setAddExpense(false);
+    props.onCancel(false);
   };
 
   return (
     <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
-        <div className='new-expense__control'>
+        <div className='new-expense__contrsol'>
           <label>Title</label>
           <input
             type='text'
