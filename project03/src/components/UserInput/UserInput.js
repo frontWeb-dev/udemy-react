@@ -7,7 +7,7 @@ const initialData = {
   duration: 10,
 };
 
-const Form = () => {
+const Form = (props) => {
   const [input, setInput] = useState(initialData);
 
   const changeHandler = (input, value) => {
@@ -25,6 +25,8 @@ const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    props.onCalculate();
   };
 
   return (
