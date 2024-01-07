@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
 
-const Form = () => {
-  const [input, setInput] = useState({ current: '', yearly: '', interest: '', duration: '' });
+const initialData = {
+  'current-savings': 10000,
+  'yearly-contribution': 1200,
+  'expected-return': 7,
+  duration: 10,
+};
 
-  const changeHandler = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    console.log(id);
-    if (id === 'current-savings') setInput({ ...input, current: value });
-    else if (id === 'yearly-contribution') setInput({ ...input, yearly: value });
-    else if (id === 'expected-return') setInput({ ...input, interest: value });
-    else setInput({ ...input, duration: value });
+const Form = () => {
+  const [input, setInput] = useState(initialData);
+
+  const changeHandler = (input, value) => {
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [input]: value,
+      };
+    });
   };
 
-  const CancelHandler = () => {
-    console.log('cancel');
-    setInput({ current: '', yearly: '', interest: '', duration: '' });
+  const resetHandler = () => {
+    setInput(initialData);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(input);
   };
 
   return (
-    <form className='form'>
+    <form className='form' onSubmit={submitHandler}>
       <div className='input-group'>
         <p>
           <label htmlFor='current-savings'>Current Savings ($)</label>
           <input
             type='number'
             id='current-savings'
-            onChange={changeHandler}
-            value={input.current}
+            onChange={(e) => changeHandler('current-savings', e.target.value)}
+            value={input['current-savings']}
           />
         </p>
         <p>
@@ -40,8 +44,8 @@ const Form = () => {
           <input
             type='number'
             id='yearly-contribution'
-            onChange={changeHandler}
-            value={input.yearly}
+            onChange={(e) => changeHandler('yearly-contribution', e.target.value)}
+            value={input['yearly-contribution']}
           />
         </p>
       </div>
@@ -51,20 +55,25 @@ const Form = () => {
           <input
             type='number'
             id='expected-return'
-            onChange={changeHandler}
-            value={input.interest}
+            onChange={(e) => changeHandler('expected-return', e.target.value)}
+            value={input['expected-return']}
           />
         </p>
         <p>
           <label htmlFor='duration'>Investment Duration (years)</label>
-          <input type='number' id='duration' onChange={changeHandler} value={input.duration} />
+          <input
+            type='number'
+            id='duration'
+            onChange={(e) => changeHandler('duration', e.target.value)}
+            value={input.duration}
+          />
         </p>
       </div>
       <p className='actions'>
-        <button type='reset' onClick={CancelHandler} className='buttonAlt'>
+        <button type='reset' onClick={resetHandler} className='buttonAlt'>
           Reset
         </button>
-        <button type='submit' onClick={submitHandler} className='button'>
+        <button type='submit' className='button'>
           Calculate
         </button>
       </p>
