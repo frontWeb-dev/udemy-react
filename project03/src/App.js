@@ -31,12 +31,16 @@ function App() {
     }
   }
 
+  console.log(userInput);
+
   return (
     <div>
       <Header />
       <UserInput onCalculate={calculateHandler} />
 
-      <ResultTable />
+      {userInput && (
+        <ResultTable data={yearlyData} initialInvestment={userInput['current-savings']} />
+      )}
     </div>
   );
 }

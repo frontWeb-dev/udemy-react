@@ -26,7 +26,7 @@ const Form = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    props.onCalculate();
+    props.onCalculate(input);
   };
 
   return (
