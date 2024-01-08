@@ -24,7 +24,7 @@ const AddUser = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (userInfo.age === '' || userInfo.name === '') {
+    if (userInfo.age.trim().length === 0 || userInfo.name.trim().length === 0) {
       setAlert('Please enter a valid name and age (non-empty values).');
       setModal(true);
       return;
