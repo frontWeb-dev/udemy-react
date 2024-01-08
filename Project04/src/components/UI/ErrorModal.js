@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './ErrorModal.module.css';
-import Button from './../Button/Button';
+import Button from './Button';
 
 const ErrorModal = (props) => {
   const clickHandler = () => {

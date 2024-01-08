@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './AddUser.module.css';
 import Button from '../UI/Button';
-import ErrorModal from '../ErrorModal/ErrorModal';
+import ErrorModal from '../UI/ErrorModal';
 import Card from '../UI/Card';
 
 const initialInfo = { name: '', age: '' };
