@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './AddUser.module.css';
-import Button from './../Button/Button';
+import Button from '../UI/Button';
 import ErrorModal from '../ErrorModal/ErrorModal';
 
 const initialInfo = { name: '', age: '' };
@@ -44,6 +44,7 @@ const AddUser = (props) => {
       <form className={classes.input} onSubmit={submitHandler}>
         <label htmlFor='username'>Username</label>
         <input
+          id='username'
           type='text'
           value={userInfo.name}
           onChange={(e) => changeHandler('name', e.target.value)}
@@ -51,6 +52,7 @@ const AddUser = (props) => {
 
         <label htmlFor='age'>Age (Years)</label>
         <input
+          id='age'
           type='number'
           value={userInfo.age}
           onChange={(e) => changeHandler('age', e.target.value)}
