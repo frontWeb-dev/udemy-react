@@ -59,7 +59,7 @@ const AddUser = (props) => {
           onChange={(e) => changeHandler('age', e.target.value)}
         />
 
-        <Button>Add User</Button>
+        <Button type='submit'>Add User</Button>
       </form>
 
       {modal && <ErrorModal alert={alert} offModal={modalHandler} />}
