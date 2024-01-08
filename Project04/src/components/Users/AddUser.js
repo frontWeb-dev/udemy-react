@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classes from './AddUser.module.css';
 import Button from '../UI/Button';
 import ErrorModal from '../ErrorModal/ErrorModal';
+import Card from '../UI/Card';
 
 const initialInfo = { name: '', age: '' };
 
@@ -40,8 +41,8 @@ const AddUser = (props) => {
   };
 
   return (
-    <>
-      <form className={classes.input} onSubmit={submitHandler}>
+    <Card className={classes.input}>
+      <form onSubmit={submitHandler}>
         <label htmlFor='username'>Username</label>
         <input
           id='username'
@@ -62,7 +63,7 @@ const AddUser = (props) => {
       </form>
 
       {modal && <ErrorModal alert={alert} offModal={modalHandler} />}
-    </>
+    </Card>
   );
 };
 
