@@ -1,4 +1,5 @@
 import React from 'react';
+import './CoreConcept.css';
 
 const CoreConcept = ({ title, description, image }) => {
   return (
