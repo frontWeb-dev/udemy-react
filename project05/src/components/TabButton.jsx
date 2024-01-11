@@ -1,9 +1,11 @@
 import React from 'react';
 
 const TabButton = ({ children }) => {
+  const clickHandler = () => {};
+
   return (
     <li>
-      <button>{children}</button>
+      <button onClick={clickHandler}>{children}</button>
     </li>
   );
 };
