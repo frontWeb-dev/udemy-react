@@ -4,7 +4,8 @@ import TabButton from './components/TabButton.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
 function App() {
-  const clickHandler = () => {};
+  const clickHandler = (value) => {};
+
   return (
     <div>
       <Header />
@@ -26,10 +27,10 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={clickHandler}>Components</TabButton>
-            <TabButton onClick={clickHandler}>JSX</TabButton>
-            <TabButton onClick={clickHandler}>Props</TabButton>
-            <TabButton onClick={clickHandler}>State</TabButton>
+            <TabButton onClick={() => clickHandler('components')}>Components</TabButton>
+            <TabButton onClick={() => clickHandler('jsx')}>JSX</TabButton>
+            <TabButton onClick={() => clickHandler('props')}>Props</TabButton>
+            <TabButton onClick={() => clickHandler('state')}>State</TabButton>
           </menu>
         </section>
         <section>Dynamic Content</section>
