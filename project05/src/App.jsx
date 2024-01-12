@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
 function App() {
-  const clickHandler = (value) => {};
+  const [selectTopic, setSelectTopic] = useState('Please click a button');
+
+  const clickHandler = (value) => {
+    setSelectTopic(value);
+  };
 
   return (
     <div>
@@ -33,7 +38,7 @@ function App() {
             <TabButton onClick={() => clickHandler('state')}>State</TabButton>
           </menu>
         </section>
-        <section>Dynamic Content</section>
+        <section>{selectTopic}</section>
       </main>
     </div>
   );
