@@ -3,6 +3,13 @@ import propsImg from './assets/config.png';
 import jsxImg from './assets/jsx-ui.png';
 import stateImg from './assets/state-mgmt.png';
 
+export const TOPICS = [
+  { title: 'Components', label: 'components' },
+  { title: 'JSX', label: 'jsx' },
+  { title: 'Props', label: 'props' },
+  { title: 'State', label: 'state' },
+];
+
 export const CORE_CONCEPTS = [
   {
     image: componentsImg,

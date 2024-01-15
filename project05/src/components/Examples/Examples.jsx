@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EXAMPLES } from '../../data.js';
+import { EXAMPLES, TOPICS } from '../../data.js';
 import Section from '../Section';
 import Tabs from '../Tabs';
 import TabButton from '../TabButton';
@@ -29,22 +29,16 @@ const Examples = () => {
   return (
     <Section title='Examples' id='examples'>
       <Tabs
+        ButtonsContainer='menu'
         buttons={
           <>
-            <TabButton
-              isSelected={selectTopic === 'components'}
-              onClick={() => clickHandler('components')}>
-              Components
-            </TabButton>
-            <TabButton isSelected={selectTopic === 'jsx'} onClick={() => clickHandler('jsx')}>
-              JSX
-            </TabButton>
-            <TabButton isSelected={selectTopic === 'props'} onClick={() => clickHandler('props')}>
-              Props
-            </TabButton>
-            <TabButton isSelected={selectTopic === 'state'} onClick={() => clickHandler('state')}>
-              State
-            </TabButton>
+            {TOPICS.map((topic) => (
+              <TabButton
+                isSelected={selectTopic === topic.label}
+                onClick={() => clickHandler(topic.label)}>
+                {topic.title}
+              </TabButton>
+            ))}
           </>
         }>
         {tabContent}
