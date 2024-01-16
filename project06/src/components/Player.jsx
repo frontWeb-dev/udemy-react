@@ -12,17 +12,21 @@ const Player = ({ name, symbol }) => {
     setPlayerName(e.target.value);
   };
 
+  let player = <span className='player-name'>{playerName}</span>;
+  let button = 'Edit';
+
+  if (isEditing) {
+    player = <input type='text' onChange={changeHandler} />;
+    button = 'Change';
+  }
+
   return (
     <li>
       <span className='player'>
-        {isEditing ? (
-          <input type='text' onChange={changeHandler} />
-        ) : (
-          <span className='player-name'>{playerName}</span>
-        )}
+        {player}
         <span className='player-symbol'>{symbol}</span>
       </span>
-      <button onClick={clickHandler}>{isEditing ? 'Change' : 'Edit'}</button>
+      <button onClick={clickHandler}>{button}</button>
     </li>
   );
 };
