@@ -5,7 +5,7 @@ const Player = ({ name, symbol }) => {
   const [playerName, setPlayerName] = useState(name);
 
   const clickHandler = () => {
-    setIsEditing(!isEditing);
+    setIsEditing((editing) => !editing);
   };
 
   const changeHandler = (e) => {
@@ -16,8 +16,8 @@ const Player = ({ name, symbol }) => {
   let button = 'Edit';
 
   if (isEditing) {
-    player = <input type='text' onChange={changeHandler} />;
-    button = 'Change';
+    player = <input type='text' onChange={changeHandler} required />;
+    button = 'Save';
   }
 
   return (
