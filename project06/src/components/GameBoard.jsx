@@ -12,7 +12,6 @@ const GameBoard = ({ activePlayer, onSelectSquare }) => {
   const handleSelectSquare = (rowIndex, colIndex) => {
     setGameBoard((prevBoard) => {
       const newBoard = [...prevBoard.map((innerArray) => [...innerArray])];
-
       newBoard[rowIndex][colIndex] = activePlayer;
 
       return newBoard;
