@@ -1,12 +1,24 @@
 import React from 'react';
 
-const initialGameBorarr=[[null,null,null],[null,null,null],[null,null,null],]
+const initialGameBoard = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
 const GameBoard = () => {
-  return
+  return (
     <ol id='game-board'>
-      <li></li>
-      <li></li>
-      <li></li>
+      {initialGameBoard.map((row, rowIndex) => (
+        <li key={rowIndex}>
+          <ol>
+            {row.map((symbol, colIndex) => (
+              <li key={colIndex}>
+                <button>{symbol}</button>
+              </li>
+            ))}
+          </ol>
+        </li>
+      ))}
     </ol>
   );
 };
